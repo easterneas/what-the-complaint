@@ -9,5 +9,13 @@ const ComplaintController = require('../../controllers/ComplaintController')
 
 adminEndpoints
 .get()
+.get('/', UserController.showUser)
+.get('/complaint/:id', UserController.seeComplaint)
+.get('/:id/edit', UserController.editComplaintForm)
+.post('/:id/edit', UserController.editComplaint)
+.get('/:id/delete', UserController.deleteComplaint)
+
+.get('/admin', UserController.showUser)
+.get('/admin/user/:id', UserController.seeComplaint)
 
 module.exports = adminEndpoints
