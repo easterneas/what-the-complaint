@@ -8,6 +8,9 @@ const isAdmin = require('../middleware/isAdmin')
 const index = require('express').Router()
 
 index
+.get('/', (req, res) => {
+    res.redirect('/customer')
+})
 .get('/login', AuthController.loginForm)
 .post('/login', AuthController.login)
 .get('/register', AuthController.registerForm)
