@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:css": "postcss src/tailwind.css -o public/styles/main.css",
+    "watch": "watch 'npm run build:css && echo \"\n\nbuild complete\n\n\"' ./src --delay 1000"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,13 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-extend": "0.0.1",
+    "express-session": "^1.17.1",
     "nodemailer": "^6.4.11",
     "pg": "^8.3.3",
     "postcss": "^7.0.32",
     "sequelize": "^6.3.4",
-    "tailwindcss": "^1.7.5"
+    "tailwindcss": "^1.7.5",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
