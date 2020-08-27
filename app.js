@@ -24,6 +24,7 @@ if(app.get('env') === 'production'){
 // initialize session
 app.use(session(sessionConf))
 
+app.use(express.static(`${__dirname}/public`))
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/', route)
