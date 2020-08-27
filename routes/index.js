@@ -1,16 +1,24 @@
 const adminEndpoints = require('./endpoints/admin')
 const userEndpoints = require('./endpoints/user')
 
-const AuthController = require('../controllers/AuthController')
+// const AuthController = require('../controllers/AuthController')
+const isAuthenticated = require('../middleware/isAuthenticated')
+const isAdmin = require('../middleware/isAdmin')
 
 const index = require('express').Router()
 
 index
-.use('/admin', [adminMiddleware], adminEndpoints)
-.use('/user', [userMiddleware], userEndpoints)
 .get('/login', AuthController.loginForm)
 .post('/login', AuthController.login)
 .get('/register', AuthController.registerForm)
 .post('/register', AuthController.register)
+
+// to use /customer, check if the user is authenticated
+index.use('/customer', isAuthenticated, userEndpoints)
+
+// to use /admin, check if the user is authenticated and has admin access
+index.use('/admin', isAuthenticated, isAdmin, adminEndpoints)
+
+
 
 module.exports = index
