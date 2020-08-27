@@ -1,7 +1,7 @@
+const AuthController = require('../controllers/AuthController')
 const adminEndpoints = require('./endpoints/admin')
 const userEndpoints = require('./endpoints/user')
 
-// const AuthController = require('../controllers/AuthController')
 const isAuthenticated = require('../middleware/isAuthenticated')
 const isAdmin = require('../middleware/isAdmin')
 
